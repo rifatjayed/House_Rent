@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "../assets/img/house-banner.png"
-import Search from './Search';
+import Search from './Search/Search';
 
 const Banner = () => {
     return (
