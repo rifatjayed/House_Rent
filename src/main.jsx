@@ -11,6 +11,7 @@ import {
 import Home from './components/Pages/Home.jsx';
 import House from './components/House.jsx';
 import PropertyDetails from './components/Pages/PropertyDetails.jsx';
+import HouseContextProvider from './components/HouseContextProvider.jsx';
 
 
 
@@ -40,7 +41,10 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <HouseContextProvider>
+      <React.StrictMode>
   <RouterProvider router={router} />
 </React.StrictMode>
+  </HouseContextProvider>
+
 )
