@@ -11,7 +11,7 @@ const Banner = () => {
                     <p className='max-w-[480px] mb-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora enim laudantium iste eum perspiciatis doloribus debitis eveniet, et veniam maiores.</p>
                 </div>
                 <div className='hidden flex-1 lg:flex justify-end items-end'>
-                    <img src={Image} alt="" srcset="" />
+                    <img src={Image} alt="" />
                 </div>
             </div>
             <Search></Search>
