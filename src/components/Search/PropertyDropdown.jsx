@@ -6,7 +6,7 @@ import { Menu } from '@headlessui/react'
 import { RiHome5Line, RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 
-import HouseContextProvider, { HouseContext } from '../HouseContextProvider';
+import { HouseContext } from '../HouseContextProvider';
 
 // import context
 
