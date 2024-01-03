@@ -12,7 +12,7 @@ const HouseContextProvider = ({ children }) => {
     const [countries, setCountries] = useState([]);
     const [property, setProperty] = useState('Property type (any)');
     const [properties, setProperties] = useState([]);
-    const [price, setPrice] = useState('Price range (Any)');
+    const [price, setPrice] = useState('Price range (any)');
     const [loading, setLoading] = useState(false);
 
 
@@ -47,9 +47,64 @@ const HouseContextProvider = ({ children }) => {
 
 
 
-const handleClick =()=>{
-    console.log("clicked")
-}
+    const handleClick = () => {
+        // console.log(country, property, price )
+
+        const isDefault = (str) => {
+            return str.split(" ").includes("(any)");
+        };
+        // console.log(isDefault(country))
+        const minPrice = parseInt(price.split(' ')[0]);
+
+
+        const maxPrice = parseInt(price.split('-')[1]);
+        // console.log(price)
+
+        const newHouse = housesData.filter((house) => {
+
+            // console.log(house.price)
+            const housePrice = parseInt(house.price)
+
+            if (
+                house.country === country &&
+                house.type === property &&
+                housePrice >= minPrice &&
+                housePrice <= maxPrice
+            ) {
+
+                return house;
+            }
+
+            // if all values are default
+   
+            if (isDefault(country) && isDefault(property) && isDefault(price)) {
+                return house;
+                // console.log(house)
+          
+            }
+            if(!isDefault(country) && isDefault(property) && isDefault(price)){
+
+                return house.country === country;
+
+            }
+            if(!isDefault(property) && isDefault( country) && isDefault(price)){
+
+                return house.type=== property;
+
+            }  
+                if(!isDefault(price) && isDefault(property) && isDefault(country)){
+
+           if(housePrice >= minPrice && housePrice <= maxPrice){
+            return house
+           }
+
+            }
+
+        });
+
+        // console.log(country, property,minPrice, maxPrice)
+        console.log(newHouse)
+    };
 
     return (
         <HouseContext.Provider value={{
@@ -63,7 +118,7 @@ const handleClick =()=>{
             setPrice,
             houses,
             loading,
-            handleClick 
+            handleClick
         }}>
             {children}
         </HouseContext.Provider>

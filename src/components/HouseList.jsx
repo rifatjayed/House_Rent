@@ -10,27 +10,27 @@ import House from './House';
 import { Link } from 'react-router-dom';
 
 const HouseList = () => {
-    const {houses, loading}= useContext(HouseContext)
-    console.log(houses)
-    return (
-      <section className='mb-20'>
-        <div  className='container mx-auto'>
+  const { houses, loading } = useContext(HouseContext)
+  // console.log(houses)
+  return (
+    <section className='mb-20'>
+      <div className='container mx-auto'>
 
-<div>
-    {
-        houses.map((house, index)=>{
-            return(
-           <Link to={`/property/${house.id}`} key={index}>
-            <House house={house}></House>
-           </Link>
-        )
-        })
-    }
-</div>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-14'>
+          {
+            houses.map((house, index) => {
+              return (
+                <Link to={`/property/${house.id}`} key={index}>
+                  <House house={house}></House>
+                </Link>
+              )
+            })
+          }
         </div>
+      </div>
 
-      </section>
-    );
+    </section>
+  );
 };
 
 export default HouseList;
